@@ -109,6 +109,8 @@ export default function BioClient({ latestPosts }: BioClientProps) {
             <img
               src="/images/about/mali-profil-bio.png"
               alt="mAli Profil Fotoğrafı"
+              width={120}
+              height={120}
               loading="lazy"
               decoding="async"
               className="w-full h-full object-cover"

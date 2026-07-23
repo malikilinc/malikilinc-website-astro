@@ -10,9 +10,9 @@ export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
+    if (typeof window !== "undefined" && window.innerWidth >= 768 && videoRef.current) {
       videoRef.current.play().catch(() => {
-        // Autoplay blocked — video sessizce başlamaz, kullanıcı etkileşimi gerekir
+        // Autoplay blocked
       });
     }
   }, []);
@@ -23,21 +23,24 @@ export default function Hero() {
       <img
         src="/images/hero-poster.webp"
         alt="mAli Hero Background"
+        width={1920}
+        height={1080}
         loading="eager"
         fetchPriority="high"
         decoding="async"
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
 
-      {/* Video Background — sadece bu section içinde */}
+      {/* Video Background — Desktop only to maximize mobile PageSpeed */}
       <video
         ref={videoRef}
         autoPlay
         muted
+        loop
         playsInline
         preload="none"
         poster="/images/hero-poster.webp"
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="hidden md:block absolute inset-0 w-full h-full object-cover z-0"
       >
         <source src="/malihero.webm" type="video/webm" />
         <source src="/malihero.mp4" type="video/mp4" />

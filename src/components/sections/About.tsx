@@ -38,6 +38,8 @@ export default function About() {
                 <img
                   src="/images/about/mali-profil.png"
                   alt="mAli profil fotoğrafı"
+                  width={400}
+                  height={500}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover"

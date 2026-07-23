@@ -33,6 +33,11 @@ const GA_ID = "G-1WFY4193JN";
     <link rel="icon" type="image/gif" href="/favicon.gif" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Robots & Crawler Meta Tags -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
     <!-- LCP Image Preload -->
     <link rel="preload" as="image" href="/images/hero-poster.webp" type="image/webp" fetchpriority="high" />
@@ -62,6 +67,19 @@ const GA_ID = "G-1WFY4193JN";
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
+    <!-- JSON-LD Structured Data for Crawlers & Search Engines -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "mAli",
+      "url": "https://mali.tr/",
+      "author": {
+        "@type": "Person",
+        "name": "mAli"
+      },
+      "description": description
+    })} />
+
     <!-- Google Analytics (Deferred to reduce TBT) -->
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} fetchpriority="low"></script>
     <script is:inline define:vars={{ GA_ID }}>
@@ -73,7 +91,7 @@ const GA_ID = "G-1WFY4193JN";
   </head>
   <body class="antialiased bg-background text-foreground relative min-h-screen">
     <LenisProvider client:idle>
-      <BackgroundEffects client:idle />
+      <BackgroundEffects />
       {showNavbar && <Navbar client:load />}
       <main class="relative z-10 min-h-screen">
         <slot />
