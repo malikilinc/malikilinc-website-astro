@@ -78,6 +78,8 @@ const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
           <img
             src={post.data.image}
             alt={post.data.title}
+            loading="eager"
+            decoding="async"
             class="w-full h-full object-cover"
           />
         </div>

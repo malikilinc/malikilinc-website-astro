@@ -23,6 +23,9 @@ export default function Hero() {
       <img
         src="/images/hero-poster.webp"
         alt="mAli Hero Background"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
 
@@ -32,7 +35,7 @@ export default function Hero() {
         autoPlay
         muted
         playsInline
-        preload="metadata"
+        preload="none"
         poster="/images/hero-poster.webp"
         className="absolute inset-0 w-full h-full object-cover z-0"
       >

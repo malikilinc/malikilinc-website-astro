@@ -8,7 +8,8 @@
     "start": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "codehealth": "codehealth --react"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.3",

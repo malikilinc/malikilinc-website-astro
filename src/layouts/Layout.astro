@@ -34,6 +34,13 @@ const GA_ID = "G-1WFY4193JN";
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- LCP Image Preload -->
+    <link rel="preload" as="image" href="/images/hero-poster.webp" type="image/webp" fetchpriority="high" />
+
+    <!-- External Resource Preconnects -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
@@ -55,8 +62,8 @@ const GA_ID = "G-1WFY4193JN";
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-    <!-- Google Analytics -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <!-- Google Analytics (Deferred to reduce TBT) -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} fetchpriority="low"></script>
     <script is:inline define:vars={{ GA_ID }}>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -65,13 +72,13 @@ const GA_ID = "G-1WFY4193JN";
     </script>
   </head>
   <body class="antialiased bg-background text-foreground relative min-h-screen">
-    <LenisProvider client:load>
-      <BackgroundEffects client:load />
+    <LenisProvider client:idle>
+      <BackgroundEffects client:idle />
       {showNavbar && <Navbar client:load />}
       <main class="relative z-10 min-h-screen">
         <slot />
       </main>
-      {showFooter && <Footer client:load />}
+      {showFooter && <Footer client:visible />}
     </LenisProvider>
   </body>
 </html>

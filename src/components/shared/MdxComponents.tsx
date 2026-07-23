@@ -11,6 +11,8 @@ export const components = {
       <img
         src={props.src || ""}
         alt={props.alt || ""}
+        loading="lazy"
+        decoding="async"
         className="rounded-xl w-full max-w-[720px] h-auto mx-auto object-cover"
       />
     </span>

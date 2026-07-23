@@ -38,6 +38,8 @@ export default function About() {
                 <img
                   src="/images/about/mali-profil.png"
                   alt="mAli profil fotoğrafı"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
