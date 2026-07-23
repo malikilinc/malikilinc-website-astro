@@ -1,0 +1,96 @@
+---
+title: "Neon DB vs Supabase Free Plan: Küçük Bir Projede Neden Neon'a Geçtim"
+slug: neon-vs-supabase-free-plan
+description: "Supabase Free Plan ve Neon Free Plan arasındaki farkları, pause ve cold start deneyimi üzerinden sade bir şekilde karşılaştırdım."
+meta_description: "Neon DB ve Supabase Free Plan karşılaştırması: Supabase pause deneyimi, Neon cold start davranışı ve küçük projeler için pratik tercih notları."
+keywords: ["neon vs supabase", "neon db free plan", "supabase free plan", "supabase pause", "neon cold start"]
+date: "06/2026"
+image: "/images/blog/neon-vs-supabase.webp"
+category: "yazilim-sureci"
+tags: ["postgresql", "supabase", "neon", "veritabani"]
+published: true
+reading_time: "4 dakika"
+---
+
+# Neon DB vs Supabase Free Plan: Küçük Bir Projede Neden Neon'a Geçtim
+
+Bir müşterim için temel seviyede bir web uygulaması hazırladım. İlk kurulumda Supabase kullandım, daha sonra veritabanı tarafını Neon DB'ye taşıdım.
+
+Bu yazıda "Supabase mi daha iyi, Neon mu?" gibi kesin bir cevap vermeyeceğim. Benim derdim daha dar: **seyrek kullanılan, küçük bir projede free plan deneyimi nasıl hissettiriyor?**
+
+## Kısa Cevap
+
+Sadece PostgreSQL veritabanına ihtiyacım olan bu projede Neon DB benim için daha az uğraş çıkardı. Supabase tarafında proje kullanılmadığında pause durumuna düşmesi ve panelden tekrar başlatma ihtiyacı beni yordu. Neon'da ise veritabanı idle olduğunda uyuyor, yeni istek geldiğinde otomatik uyanıyor.
+
+Bu fark kağıt üzerinde küçük görünüyor. Ama projeyi her gün açmayan bir müşteriyle çalışıyorsanız, manuel "resume" işlemi zamanla can sıkıcı hale gelebiliyor.
+
+## Neden İlk Olarak Supabase Seçtim?
+
+Supabase'i seçmemin sebebi gayet netti: tek panelden PostgreSQL, Auth, Storage ve diğer servisleri alabiliyorsunuz. Basit bir ürün çıkarmak istiyorsanız bu büyük kolaylık.
+
+Özellikle auth ve dosya yükleme gibi ihtiyaçlarınız varsa Supabase hala çok güçlü bir seçenek. Kurulum hızlı, dokümantasyon geniş ve ekosistem olgun.
+
+Benim projede ise asıl ihtiyaç daha sadeydi: uygulamanın bağlanacağı güvenilir bir PostgreSQL veritabanı.
+
+## Beni Yoran Nokta: Pause Davranışı
+
+Supabase Free Plan'da proje aktif kullanılmadığında pause durumuna geçebiliyor. Benim senaryomda müşteri uygulamayı yaklaşık 7 gün kullanmayınca proje durdu ve tekrar çalıştırmak için Supabase panelinden resume etmem gerekti.
+
+Tek seferlik olsa sorun değil. Fakat bu durum tekrar etmeye başlayınca operasyonel bir yüke dönüştü:
+
+- Müşteri uygulamayı seyrek kullanıyordu.
+- Uygulama açılmadığında ilk kontrol etmem gereken yer veritabanı oluyordu.
+- Resume işlemi için panele girip elle müdahale etmem gerekiyordu.
+
+Bu, Supabase'in kötü olduğu anlamına gelmiyor. Sadece benim kullanım senaryomla free plan davranışının çok uyuşmadığı anlamına geliyor.
+
+## Neon'a Geçince Ne Değişti?
+
+Neon DB tarafında deneyim daha farklıydı. Neon serverless PostgreSQL mantığıyla çalışıyor. Veritabanı uzun süre istek almazsa compute tarafı sıfıra kadar inebiliyor; yeni bağlantı geldiğinde otomatik olarak tekrar çalışıyor.
+
+Benim için kritik fark buydu: **panelden manuel resume yapmadım.**
+
+İlk istekte kısa bir bekleme olabiliyor. Benim deneyimimde bu gecikme küçük projeler için kabul edilebilir seviyedeydi. Sürekli aktif kalması gereken, anlık yanıt bekleyen bir uygulama için ise bu davranış mutlaka test edilmeli.
+
+## Teknik Geçiş Zor Oldu mu?
+
+Hayır. Projede zaten PostgreSQL kullandığım için uygulama tarafında büyük bir değişiklik yapmadım.
+
+Temel olarak bağlantı adresini değiştirdim:
+
+```env
+# .env - Neon bağlantı örneği
+DATABASE_URL="postgresql://kullanici:sifre@ep-ornek-proje.eu-central-1.aws.neon.tech/veritabani?sslmode=require"
+```
+
+Veriyi de export/import ile taşıdım. ORM ve sorgu katmanını baştan yazmam gerekmedi.
+
+Bu noktada dikkat edilmesi gereken şey şu: eğer Supabase'in Auth, Storage, Realtime gibi servislerini aktif kullanıyorsanız geçiş sadece connection string değiştirmek kadar basit olmayabilir. Benim geçişim kolaydı çünkü projede asıl bağımlılık PostgreSQL veritabanındaydı.
+
+## Free Plan Karşılaştırması
+
+|  | Supabase Free | Neon Free |
+|---|---|---|
+| Ana avantaj | Auth, Storage ve PostgreSQL tek platformda | Serverless PostgreSQL deneyimi daha sade |
+| Uyku davranışı | Proje pause durumuna geçebiliyor, resume gerekebiliyor | Compute idle durumda sıfıra inip yeni istekte uyanabiliyor |
+| Seyrek kullanılan proje | Resume ihtiyacı can sıkabilir | İlk istekte gecikme olabilir ama manuel müdahale gerekmez |
+| Sadece veritabanı ihtiyacı | Kullanılabilir, ama platform daha geniş | Daha odaklı ve pratik |
+| Auth / Storage ihtiyacı | Güçlü taraflarından biri | Ayrıca değerlendirmek gerekir |
+
+## Hangi Durumda Hangisini Seçerdim?
+
+**Supabase seçerdim**, eğer proje sadece veritabanı değil; auth, storage, realtime ve edge function gibi servisleri de tek yerden yönetmek istiyorsa.
+
+**Neon seçerdim**, eğer ihtiyacım daha çok PostgreSQL ise ve proje her gün aktif kullanılmayan, küçük veya orta ölçekli bir uygulamaysa.
+
+Benim projede ikinci senaryo daha baskındı. Bu yüzden Neon'a geçmek daha pratik oldu.
+
+## Sonuç
+
+Bu deneyimden sonra şunu daha net gördüm: Free plan karşılaştırırken sadece kota tablosuna bakmak yetmiyor. Uygulamanın ne kadar sık kullanıldığı, ilk istekte gecikmeye toleransı olup olmadığı ve manuel müdahale gerektirip gerektirmediği de önemli.
+
+Supabase daha geniş bir uygulama platformu. Neon ise benim bu projede ihtiyaç duyduğum PostgreSQL tarafını daha az sürtünmeyle çözdü.
+
+Bu nedenle, sadece bu proje için konuşursam, Neon DB Free Plan benim için daha rahat bir tercih oldu.
+
+> Free plan limitleri ve davranışları zamanla değişebilir. Bu yazıyı okurken Supabase ve Neon'un güncel fiyatlandırma/dokümantasyon sayfalarını kontrol etmek iyi olur.

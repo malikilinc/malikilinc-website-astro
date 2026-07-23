@@ -1,0 +1,41 @@
+---
+title: "E-Ticaret Platformu"
+shortDescription: "Modern ve ölçeklenebilir e-ticaret çözümü"
+description: "Next.js ve Stripe entegrasyonu ile geliştirilmiş, tam özellikli bir e-ticaret platformu. Ürün yönetimi, sepet sistemi, ödeme işlemleri ve sipariş takibi gibi temel e-ticaret fonksiyonlarını içerir."
+image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=450&fit=crop&q=80"
+images: []
+technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "PostgreSQL"]
+category: "e-ticaret"
+liveUrl: "#"
+githubUrl: "#"
+featured: true
+published: true
+---
+
+## Proje Hakkında
+
+Bu proje, modern web teknolojileri kullanılarak geliştirilmiş kapsamlı bir e-ticaret platformudur. Kullanıcı deneyimi ve performans ön planda tutularak tasarlanmıştır.
+
+## Özellikler
+
+- **Ürün Yönetimi** — Kategori bazlı ürün listeleme ve filtreleme
+- **Sepet Sistemi** — Gerçek zamanlı sepet güncellemeleri
+- **Ödeme Entegrasyonu** — Stripe ile güvenli ödeme işlemleri
+- **Sipariş Takibi** — Kullanıcılar için sipariş durumu takibi
+- **Admin Paneli** — Ürün ve sipariş yönetimi
+
+## Teknik Detaylar
+
+Next.js App Router kullanılarak server-side rendering ile optimize edilmiştir. Veritabanı olarak PostgreSQL tercih edilmiş, ORM katmanında Prisma kullanılmıştır.
+
+```typescript
+// Örnek API route yapısı
+export async function GET(request: Request) {
+  const products = await prisma.product.findMany({
+    include: { category: true },
+    orderBy: { createdAt: "desc" },
+  });
+
+  return Response.json(products);
+}
+```

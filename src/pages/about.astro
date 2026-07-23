@@ -1,0 +1,13 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import About from "@/components/sections/About";
+---
+
+<Layout
+  title="Hakkımda | mAli"
+  description="Yazılım, tasarım ve üretim odağındaki yolculuğum ile kullandığım araçlar ve yetkinlikler."
+>
+  <div class="min-h-screen pt-24">
+    <About client:load />
+  </div>
+</Layout>

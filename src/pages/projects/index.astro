@@ -1,0 +1,47 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ProjectsListClient from "@/components/projects/ProjectsListClient";
+import { projectCategories } from "@/data/projects";
+import { getCollection } from "astro:content";
+
+const rawProjects = await getCollection("projects");
+const projects = rawProjects
+  .filter((p) => p.data.published)
+  .map((p) => ({
+    slug: p.id.replace(/\.(md|mdx)$/, ""),
+    title: p.data.title,
+    shortDescription: p.data.shortDescription || p.data.description,
+    description: p.data.description,
+    image: p.data.image,
+    images: p.data.images,
+    technologies: p.data.technologies || [],
+    category: p.data.category,
+    liveUrl: p.data.liveUrl,
+    liveUrls: p.data.liveUrls,
+    githubUrl: p.data.githubUrl,
+    featured: p.data.featured || false,
+    published: p.data.published,
+  }));
+---
+
+<Layout
+  title="Projeler | mAli"
+  description="Geliştirdiğim web uygulamaları, tasarımlar ve açık kaynak projeler."
+>
+  <div class="min-h-screen pt-24">
+    <div class="relative section-glow-top pt-6 pb-20 px-4 md:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Projeler
+          </h1>
+          <p class="text-white/60 text-lg max-w-2xl mx-auto">
+            Geliştirdiğim web uygulamaları, dijital platformlar ve kreatif çalışmalar.
+          </p>
+        </div>
+
+        <ProjectsListClient projects={projects} categories={projectCategories} client:load />
+      </div>
+    </div>
+  </div>
+</Layout>

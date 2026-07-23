@@ -1,0 +1,63 @@
+---
+title: "Next.js ile Modern Web Geliştirme"
+description: "Next.js 16 ve React 19 ile modern web uygulamaları nasıl geliştirilir? App Router, Server Components ve daha fazlası."
+date: "03/2026"
+image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&h=450&fit=crop&q=80"
+category: "yazilim-sureci"
+tags: ["nextjs", "react", "typescript", "web"]
+published: true
+---
+
+## Giriş
+
+Modern web geliştirme dünyasında **Next.js** en popüler React framework'lerinden biri haline geldi. Bu yazıda Next.js 16 ile gelen yenilikleri ve modern web geliştirme pratiklerini inceleyeceğiz.
+
+## App Router
+
+Next.js'in App Router'ı, React Server Components üzerine kurulu yeni bir yönlendirme sistemidir.
+
+```typescript
+// app/page.tsx
+export default function Home() {
+  return (
+    <main>
+      <h1>Merhaba Dünya</h1>
+    </main>
+  );
+}
+```
+
+### Server Components
+
+Server Components, sunucu tarafında render edilen bileşenlerdir. Bu sayede:
+
+- **Daha küçük bundle boyutu** — client'a JavaScript gönderilmez
+- **Doğrudan veritabanı erişimi** — API katmanına gerek kalmaz
+- **Daha iyi SEO** — HTML sunucu tarafında oluşturulur
+
+## TypeScript Entegrasyonu
+
+Next.js, TypeScript ile mükemmel bir uyum sağlar. Tip güvenliği sayesinde daha güvenli kod yazarız.
+
+```typescript
+interface BlogPost {
+  title: string;
+  description: string;
+  date: string;
+  published: boolean;
+}
+```
+
+## Performans İpuçları
+
+1. **Image Optimization** — `next/image` kullanarak görselleri otomatik optimize edin
+2. **Font Optimization** — `next/font` ile font yüklemesini optimize edin
+3. **Lazy Loading** — Gerekmeyen bileşenleri geç yükleyin
+
+> Next.js, performansı varsayılan olarak optimize eder. Doğru araçları kullandığınızda minimum eforla maksimum performans elde edersiniz.
+
+## Sonuç
+
+Next.js, modern web geliştirme için güçlü bir araçtır. **App Router**, **Server Components** ve **TypeScript** desteği ile hem geliştirici deneyimini hem de kullanıcı deneyimini üst seviyeye taşır.
+
+Bir sonraki yazıda Tailwind CSS v4 ile stil yönetimini inceleyeceğiz.

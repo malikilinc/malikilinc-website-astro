@@ -1,0 +1,45 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BlogListClient from "@/components/blog/BlogListClient";
+import { categories } from "@/data/categories";
+import { getCollection } from "astro:content";
+import { parseDate } from "@/lib/utils";
+
+const rawPosts = await getCollection("blog");
+const posts = rawPosts
+  .filter((p) => p.data.published)
+  .map((p) => ({
+    slug: p.id.replace(/\.(md|mdx)$/, ""),
+    title: p.data.title,
+    description: p.data.description,
+    date: p.data.date,
+    image: p.data.image,
+    category: p.data.category,
+    tags: p.data.tags || [],
+    published: p.data.published,
+    readingTime: p.data.readingTime || 3,
+  }))
+  .sort((a, b) => parseDate(b.date) - parseDate(a.date));
+---
+
+<Layout
+  title="Blog | mAli"
+  description="Yazılım geliştirme, freelance süreçler ve teknoloji üzerine deneyimlerimi ve öğrendiklerimi paylaştığım blog alanım."
+>
+  <div class="min-h-screen pt-24">
+    <div class="relative section-glow-top pt-6 pb-20 px-4 md:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Blog
+          </h1>
+          <p class="text-white/60 text-lg max-w-2xl mx-auto">
+            Yazılım geliştirme, freelance süreçler ve teknoloji üzerine deneyimlerimi ve öğrendiklerimi paylaşıyorum.
+          </p>
+        </div>
+
+        <BlogListClient posts={posts} categories={categories} client:load />
+      </div>
+    </div>
+  </div>
+</Layout>

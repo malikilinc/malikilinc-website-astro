@@ -1,0 +1,54 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Services from "@/components/sections/Services";
+import Portfolio from "@/components/sections/Portfolio";
+import BlogSection from "@/components/sections/BlogSection";
+import { getCollection } from "astro:content";
+import { parseDate } from "@/lib/utils";
+
+// Fetch posts & projects using Astro native Content Collections
+const rawPosts = await getCollection("blog");
+const posts = rawPosts
+  .filter((p) => p.data.published)
+  .map((p) => ({
+    slug: p.id.replace(/\.(md|mdx)$/, ""),
+    title: p.data.title,
+    description: p.data.description,
+    image: p.data.image,
+    category: p.data.category,
+    readingTime: p.data.readingTime || 3,
+    date: p.data.date,
+  }))
+  .sort((a, b) => parseDate(b.date) - parseDate(a.date))
+  .slice(0, 3);
+
+const rawProjects = await getCollection("projects");
+const projects = rawProjects
+  .filter((p) => p.data.published && p.data.featured)
+  .map((p) => ({
+    slug: p.id.replace(/\.(md|mdx)$/, ""),
+    title: p.data.title,
+    shortDescription: p.data.shortDescription || p.data.description,
+    description: p.data.description,
+    image: p.data.image,
+    images: p.data.images,
+    technologies: p.data.technologies,
+    category: p.data.category,
+    liveUrl: p.data.liveUrl,
+    liveUrls: p.data.liveUrls,
+    githubUrl: p.data.githubUrl,
+    featured: p.data.featured,
+    published: p.data.published,
+  }))
+  .slice(0, 3);
+---
+
+<Layout title="mAli | Eskiden bir milyoncuydu, şimdilerde her şeyci.">
+  <Hero client:load />
+  <About client:load />
+  <!-- <Services client:load /> -->
+  <!-- <Portfolio projects={projects} client:load />
+  <BlogSection posts={posts} client:load /> -->
+</Layout>

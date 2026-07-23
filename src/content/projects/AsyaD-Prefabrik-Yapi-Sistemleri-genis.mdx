@@ -1,0 +1,52 @@
+---
+title: "ASYA D Prefabrik Yapı Sistemleri"
+shortDescription: "Astro ile geliştirilen modern prefabrik yapı katalog sitesi"
+description: "ASYA D Prefabrik için geliştirilen kurumsal web sitesi; video hero, filtrelenebilir ürün kataloğu, ürün detay galerileri, blog/RSS altyapısı ve teklif odaklı iletişim akışlarını tek bir hızlı statik yapıda birleştirir."
+image: "/images/projects/asyadprefabrik.gif"
+images: []
+technologies: ["Astro", "TypeScript", "Tailwind CSS", "Astro Content Collections", "MDX", "RSS", "Sitemap"]
+category: "web-gelistirme"
+liveUrl: "https://asyadprefabrik.com"
+featured: false
+published: false
+---
+
+## Proje Hakkında
+
+ASYA D Prefabrik Yapı Sistemleri için hazırlanan bu proje, prefabrik ve çelik yapı modellerini ziyaretçiye hızlı, görsel ve teklif almaya hazır bir deneyimle sunan kurumsal katalog sitesidir. Site; ana sayfa tanıtımı, ürün kataloğu, ürün detay sayfaları, hakkımızda, blog ve iletişim sayfalarını Astro tabanlı statik mimari üzerinde bir araya getirir.
+
+## Özellikler
+
+- **Video Hero Alanı** — WebM/MP4 kaynaklı tam ekran giriş videosu, poster görseli ve gecikmeli metin animasyonu ile ilk izlenimi güçlendirir.
+- **Filtrelenebilir Ürün Kataloğu** — Ürünler kategori, metrekare, oda sayısı ve model adına göre filtrelenebilir; aktif filtreler URL parametrelerine yazılır.
+- **Sayfalı Ürün Listeleme** — 60 ürünlük katalog 12'li sayfalar halinde sunulur; filtre aktif olduğunda tüm ürünler üzerinde arama yapılır.
+- **Ürün Detay Galerisi** — Her model için görsel galeri, thumbnail geçişleri, yatay kaydırma ve zoom modalı bulunur.
+- **Teknik Özellik Tablosu** — Ortak yapı özellikleri ürün bazlı bilgilerle birleştirilerek detay sayfasında tablo halinde gösterilir.
+- **Teklif Odaklı CTA** — Telefon, adres ve WhatsApp bağlantıları hem ürün detayında hem iletişim alanlarında görünür şekilde konumlandırılmıştır.
+- **Blog ve RSS Altyapısı** — Astro Content Collections ile blog içerikleri yönetilir ve RSS çıktısı otomatik üretilir.
+- **SEO ve Site Haritası** — Canonical URL, Open Graph/Twitter meta etiketleri, sitemap entegrasyonu ve Türkçe sayfa yapısı kullanılmıştır.
+- **Mobil Uyumlu Navigasyon** — Floating/glass navbar, mobil menü overlay'i, mobil filtre bottom sheet'i ve scroll-to-top bileşeni ile responsive kullanım desteklenir.
+- **Scroll Animasyonları** — Intersection Observer tabanlı reveal animasyonları ve sayaç animasyonlarıyla sayfa bölümleri dinamik sunulur.
+
+## İçerik Yapısı
+
+Ürünler Astro Content Collections içinde tutulur. Her ürün; başlık, açıklama, kategori, metrekare, oda sayısı, ana görsel, galeri görselleri, öne çıkarma durumu ve teknik özellikler gibi alanlarla tanımlanır. Bu yapı sayesinde yeni prefabrik model eklemek, bir Markdown/MDX içerik dosyası eklemek kadar sade hale gelir.
+
+## Teknik Detaylar
+
+Proje Astro 6 mimarisi üzerine kuruldu. Tailwind CSS 4, Vite eklentisi olarak kullanıldı; ikonlar `astro-icon` ve Lucide setiyle çözüldü. İçerik tarafında `astro:content` koleksiyonları, MDX desteği, RSS çıktısı ve sitemap entegrasyonu birlikte çalışır.
+
+```typescript
+const products = defineCollection({
+  loader: glob({ base: "./src/content/products", pattern: "**/*.{md,mdx}" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    category: z.enum(["tek-katli", "cift-katli", "ozel-tasarim"]),
+    area: z.number(),
+    rooms: z.string(),
+    images: z.array(z.string()).optional(),
+    specs: z.record(z.string(), z.string()).optional().default({}),
+  }),
+});
+```

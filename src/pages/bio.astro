@@ -1,0 +1,26 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BioClient from "@/components/bio/BioClient";
+import { getCollection } from "astro:content";
+import { parseDate } from "@/lib/utils";
+
+const rawPosts = await getCollection("blog");
+const latestPosts = rawPosts
+  .filter((p) => p.data.published)
+  .map((p) => ({
+    slug: p.id.replace(/\.(md|mdx)$/, ""),
+    title: p.data.title,
+    date: p.data.date,
+  }))
+  .sort((a, b) => parseDate(b.date) - parseDate(a.date))
+  .slice(0, 3);
+---
+
+<Layout
+  title="Bio | mAli"
+  description="mAli Link in Bio sayfası. Son yazılar, projeler, hizmetler ve iletişim kanalları."
+  showNavbar={false}
+  showFooter={false}
+>
+  <BioClient latestPosts={latestPosts} client:load />
+</Layout>

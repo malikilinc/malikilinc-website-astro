@@ -1,0 +1,77 @@
+---
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import BackgroundEffects from "@/components/shared/BackgroundEffects";
+import LenisProvider from "@/lib/lenis-provider";
+import "@/styles/globals.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  showNavbar?: boolean;
+  showFooter?: boolean;
+}
+
+const {
+  title = "mAli | Eskiden bir milyoncuydu, şimdilerde her şeyci.",
+  description = "Bu web sitesi; ben, keyfim ve kahyamın müştereken işlettiği, kişisel deneyimlerimi paylaştığım bir alandır. Yazılım geliştirme, freelance süreçler ve modern web teknolojileri üzerine kişisel web sitem.",
+  image = "/images/hero-poster.webp",
+  showNavbar = true,
+  showFooter = true,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://malikilinc.com");
+const GA_ID = "G-1WFY4193JN";
+---
+
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/gif" href="/favicon.gif" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="yazılım, geliştirici, freelance, web, astro, react" />
+    <meta name="author" content="mAli" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+    <!-- Google Analytics -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <script is:inline define:vars={{ GA_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+    </script>
+  </head>
+  <body class="antialiased bg-background text-foreground relative min-h-screen">
+    <LenisProvider client:load>
+      <BackgroundEffects client:load />
+      {showNavbar && <Navbar client:load />}
+      <main class="relative z-10 min-h-screen">
+        <slot />
+      </main>
+      {showFooter && <Footer client:load />}
+    </LenisProvider>
+  </body>
+</html>

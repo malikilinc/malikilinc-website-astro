@@ -1,0 +1,13 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Services from "@/components/sections/Services";
+---
+
+<Layout
+  title="Hizmetler | mAli"
+  description="Domain, hosting, WordPress, e-ticaret, harita ve lisans alanlarında sunduğum dijital hizmetler."
+>
+  <div class="min-h-screen pt-24">
+    <Services client:load />
+  </div>
+</Layout>
