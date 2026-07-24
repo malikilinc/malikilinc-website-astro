@@ -33,6 +33,7 @@ const projects = defineCollection({
     githubUrl: z.string().optional(),
     featured: z.boolean().default(false),
     published: z.boolean().default(true),
+    order: z.number().optional().default(99),
   }),
 });
 

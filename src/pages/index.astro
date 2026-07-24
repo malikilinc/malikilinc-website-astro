@@ -41,7 +41,9 @@ const projects = rawProjects
     githubUrl: p.data.githubUrl,
     featured: p.data.featured,
     published: p.data.published,
+    order: p.data.order ?? 99,
   }))
+  .sort((a, b) => a.order - b.order)
   .slice(0, 3);
 ---
 

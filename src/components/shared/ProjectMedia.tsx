@@ -1,3 +1,7 @@
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+
 interface ProjectMediaProps {
   src: string;
   alt: string;
@@ -30,12 +34,32 @@ function getVideoMimeType(src: string) {
 export function ProjectMedia({
   src,
   alt,
-  className,
+  className = "",
 }: ProjectMediaProps) {
+  const [isLongImage, setIsLongImage] = useState(() => {
+    return src.split("?")[0].toLowerCase().endsWith(".webp");
+  });
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  const checkIsLong = (img: HTMLImageElement) => {
+    if (img.naturalHeight > img.naturalWidth * 1.2) {
+      setIsLongImage(true);
+    }
+  };
+
+  useEffect(() => {
+    const img = imgRef.current;
+    if (img) {
+      if (img.complete && img.naturalWidth > 0) {
+        checkIsLong(img);
+      }
+    }
+  }, [src]);
+
   if (isVideoMedia(src)) {
     return (
       <video
-        className={`absolute inset-0 h-full w-full ${className || ""}`}
+        className={`absolute inset-0 h-full w-full object-cover ${className}`}
         autoPlay
         muted
         loop
@@ -50,11 +74,19 @@ export function ProjectMedia({
 
   return (
     <img
+      ref={imgRef}
       src={src}
       alt={alt}
-      loading="lazy"
+      loading="eager"
       decoding="async"
-      className={`absolute inset-0 h-full w-full ${className || ""}`}
+      onLoad={(e) => checkIsLong(e.currentTarget)}
+      className={
+        isLongImage
+          ? "animate-project-scroll"
+          : `absolute inset-0 h-full w-full object-cover ${className}`
+      }
     />
   );
 }
+
+

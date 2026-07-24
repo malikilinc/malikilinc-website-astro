@@ -63,6 +63,7 @@ function mapProjectMeta(filename: string): ProjectMeta {
     githubUrl: data.githubUrl || undefined,
     featured: data.featured ?? false,
     published: data.published ?? false,
+    order: data.order ?? 99,
   };
 }
 
@@ -76,7 +77,7 @@ export function getAllProjects(): ProjectMeta[] {
     .filter((file) => file.endsWith(".mdx"))
     .map(mapProjectMeta)
     .filter((project) => project.published)
-    .sort((a, b) => a.title.localeCompare(b.title, "tr"));
+    .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
 }
 
 export function getProjectBySlug(slug: string): Project | null {
@@ -104,6 +105,7 @@ export function getProjectBySlug(slug: string): Project | null {
     githubUrl: data.githubUrl || undefined,
     featured: data.featured ?? false,
     published: data.published ?? false,
+    order: data.order ?? 99,
     content,
   };
 }

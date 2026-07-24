@@ -437,3 +437,37 @@ body {
 .animate-bio-blur-in-up {
   animation: bio-blur-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
+/* Project Media Dikey Scroll Animasyonu */
+@keyframes projectMediaScroll {
+  0%, 15% {
+    transform: translateY(0%);
+  }
+  50%, 65% {
+    transform: translateY(-80%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.animate-project-scroll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 100%;
+  max-height: none !important;
+  object-fit: fill;
+  object-position: top;
+  animation: projectMediaScroll 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+.group:hover .animate-project-scroll,
+.animate-project-scroll:hover {
+  animation-play-state: paused;
+}
+
+

@@ -19,6 +19,7 @@ export interface Project {
   githubUrl?: string;
   featured?: boolean;
   published: boolean;
+  order?: number;
   content: string;
 }
 
@@ -36,6 +37,7 @@ export interface ProjectMeta {
   githubUrl?: string;
   featured?: boolean;
   published: boolean;
+  order?: number;
 }
 
 export interface ProjectCategory {

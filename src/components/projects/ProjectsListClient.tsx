@@ -19,9 +19,11 @@ export default function ProjectsListClient({
 }: ProjectsListClientProps) {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
-  const filteredProjects = activeCategory
-    ? projects.filter((project) => project.category === activeCategory)
-    : projects;
+  const filteredProjects = (
+    activeCategory
+      ? projects.filter((project) => project.category === activeCategory)
+      : projects
+  ).sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
 
   return (
     <>
