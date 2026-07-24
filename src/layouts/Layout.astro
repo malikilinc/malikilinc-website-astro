@@ -21,11 +21,14 @@ const {
   showFooter = true,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://mali.tr");
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || "https://mali.tr",
+);
 const GA_ID = "G-1WFY4193JN";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr" class="dark">
   <head>
     <meta charset="UTF-8" />
@@ -36,21 +39,40 @@ const GA_ID = "G-1WFY4193JN";
     <meta name="theme-color" content="#0a0a0a" />
 
     <!-- Robots & Crawler Meta Tags -->
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta
+      name="googlebot"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
 
     <!-- LCP Image Preload -->
-    <link rel="preload" as="image" href="/images/hero-poster.webp" type="image/webp" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="/images/hero-poster.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
 
     <!-- External Resource Preconnects -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link
+      rel="preconnect"
+      href="https://www.googletagmanager.com"
+      crossorigin
+    />
 
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta name="keywords" content="yazılım, geliştirici, freelance, web, astro, react" />
+    <meta
+      name="keywords"
+      content="yazılım, geliştirici, freelance, web, astro, react"
+    />
     <meta name="author" content="mAli" />
 
     <!-- Open Graph / Facebook -->
@@ -68,27 +90,38 @@ const GA_ID = "G-1WFY4193JN";
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
     <!-- JSON-LD Structured Data for Crawlers & Search Engines -->
-    <script type="application/ld+json" is:inline set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "mAli",
-      "url": "https://mali.tr/",
-      "author": {
-        "@type": "Person",
-        "name": "mAli"
-      },
-      "description": description
-    })} />
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "mAli",
+        url: "https://mali.tr/",
+        author: {
+          "@type": "Person",
+          name: "mAli",
+        },
+        description: description,
+      })}
+    />
 
-    <!-- Google Analytics (Deferred to reduce TBT) -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} fetchpriority="low"></script>
-    <script is:inline define:vars={{ GA_ID }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', GA_ID);
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MS6VNXP6");
     </script>
+    <!-- End Google Tag Manager -->
   </head>
+
   <body class="antialiased bg-background text-foreground relative min-h-screen">
     <LenisProvider client:idle>
       <BackgroundEffects />

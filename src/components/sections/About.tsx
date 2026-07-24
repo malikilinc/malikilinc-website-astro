@@ -36,7 +36,7 @@ export default function About() {
               <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-purple-500/20 blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
               <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-cyan-500/5">
                 <img
-                  src="/images/about/mali-profil.png"
+                  src="/images/about/mali-profil.webp"
                   alt="mAli profil fotoğrafı"
                   width={400}
                   height={500}

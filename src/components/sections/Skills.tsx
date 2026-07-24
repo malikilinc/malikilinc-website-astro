@@ -36,26 +36,38 @@ import { VscVscodeInsiders } from "react-icons/vsc";
    Custom SVG İkon Bileşenleri
    ═══════════════════════════════════════════ */
 
-function CursorIcon({ className, style }: { className?: string; style?: React.CSSProperties }) {
+interface CustomIconProps extends React.SVGProps<SVGSVGElement> {
+  className?: string;
+  style?: React.CSSProperties;
+  "aria-label"?: string;
+  role?: string;
+  title?: string;
+}
+
+function CursorIcon({ className, style, title, ...props }: CustomIconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style} {...props}>
+      {title && <title>{title}</title>}
       <path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23" />
     </svg>
   );
 }
 
-function AntigravityIcon({ className, style }: { className?: string; style?: React.CSSProperties }) {
+function AntigravityIcon({ className, style, title, ...props }: CustomIconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style} {...props}>
+      {title && <title>{title}</title>}
       <path d="m19.94,20.59c1.09.82,2.73.27,1.23-1.23-4.5-4.36-3.55-16.36-9.14-16.36S7.39,15,2.89,19.36c-1.64,1.64.14,2.05,1.23,1.23,4.23-2.86,3.95-7.91,7.91-7.91s3.68,5.05,7.91,7.91Z" />
     </svg>
   );
 }
 
-function BootstrapIcon({ className, style }: { className?: string; style?: React.CSSProperties }) {
+function BootstrapIcon({ className, style, title, ...props }: CustomIconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
-      <path d="M11.77 11.24H9.956V8.202h2.152c1.17 0 1.834.522 1.834 1.466 0 1.008-.773 1.572-2.174 1.572zm.324 1.206H9.957v3.348h2.231c1.459 0 2.232-.585 2.232-1.685s-.795-1.663-2.326-1.663zM24 11.39v1.218c-1.128.108-1.817.944-2.226 2.268-.407 1.319-.463 2.937-.42 4.186.045 1.3-.968 2.5-2.337 2.5H4.985c-1.37 0-2.383-1.2-2.337-2.5.043-1.249-.013-2.867-.42-4.186-.41-1.324-1.1-2.16-2.228-2.268V11.39c1.128-.108 1.819-.944 2.227-2.268.408-1.319.464-2.937.42-4.186-.045-1.3.968-2.5 2.338-2.5h14.032c1.37 0 2.382 1.2 2.337 2.5-.043 1.249.013 2.867.42 4.186.409 1.324 1.098 2.16 2.226 2.268zm-7.927 2.817c0-1.354-.953-2.333-2.368-2.488v-.057c1.04-.169 1.856-1.135 1.856-2.213 0-1.537-1.213-2.538-3.062-2.538h-4.16v10.172h4.181c2.218 0 3.553-1.086 3.553-2.876z" /></svg>
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style} {...props}>
+      {title && <title>{title}</title>}
+      <path d="M11.77 11.24H9.956V8.202h2.152c1.17 0 1.834.522 1.834 1.466 0 1.008-.773 1.572-2.174 1.572zm.324 1.206H9.957v3.348h2.231c1.459 0 2.232-.585 2.232-1.685s-.795-1.663-2.326-1.663zM24 11.39v1.218c-1.128.108-1.817.944-2.226 2.268-.407 1.319-.463 2.937-.42 4.186.045 1.3-.968 2.5-2.337 2.5H4.985c-1.37 0-2.383-1.2-2.337-2.5.043-1.249-.013-2.867-.42-4.186-.41-1.324-1.1-2.16-2.228-2.268V11.39c1.128-.108 1.819-.944 2.227-2.268.408-1.319.464-2.937.42-4.186-.045-1.3.968-2.5 2.338-2.5h14.032c1.37 0 2.382 1.2 2.337 2.5-.043 1.249.013 2.867.42 4.186.409 1.324 1.098 2.16 2.226 2.268zm-7.927 2.817c0-1.354-.953-2.333-2.368-2.488v-.057c1.04-.169 1.856-1.135 1.856-2.213 0-1.537-1.213-2.538-3.062-2.538h-4.16v10.172h4.181c2.218 0 3.553-1.086 3.553-2.876z" />
+    </svg>
   );
 }
 
@@ -126,7 +138,7 @@ const categories: CategoryData[] = [
    Tools Inventory — Veri
    ═══════════════════════════════════════════ */
 
-type AnyIcon = IconType | (({ className, style }: { className?: string; style?: React.CSSProperties }) => React.ReactElement);
+type AnyIcon = IconType | React.ComponentType<CustomIconProps>;
 
 interface ToolItem {
   name: string;
@@ -404,6 +416,9 @@ function ToolsInventory() {
                   <Icon
                     className="w-5 h-5 md:w-6 md:h-6 transition-all duration-300 tool-icon"
                     style={{ color: tool.color }}
+                    aria-label={tool.name}
+                    title={tool.name}
+                    role="img"
                   />
                 </div>
                 <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 text-[10px] text-white/60 whitespace-nowrap opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none font-mono">

@@ -62,9 +62,9 @@ export default function BlogListClient({
           className="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-100"
         >
           {filteredPosts.length === 0 ? (
-            <div className="col-span-full text-center py-16">
-              <p className="text-white/40 text-lg">
-                Bu kategoride henüz yazı bulunmuyor.
+            <div className="text-center py-16">
+              <p className="text-white/70 text-lg">
+                Seçilen kategoride henüz yazı bulunmuyor.
               </p>
             </div>
           ) : (
@@ -96,9 +96,9 @@ export default function BlogListClient({
                             {category.title}
                           </span>
                         )}
-                        <span className="flex items-center gap-1 text-xs text-white/40">
-                          <Clock className="h-3 w-3" />
-                          {post.readingTime} dk okuma
+                        <span className="flex items-center gap-1 text-xs text-white/70">
+                          <Clock className="w-3.5 h-3.5" />
+                          <span>{post.readingTime} dk okuma</span>
                         </span>
                       </div>
                       <h3 className="text-lg font-semibold text-white mb-2 line-clamp-2">

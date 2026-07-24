@@ -75,7 +75,7 @@ export default function Footer() {
           <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-6">
             {/* Menü */}
             <div>
-              <h4 className="text-white/30 text-xs font-semibold uppercase tracking-widest mb-4">
+              <h4 className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">
                 Menü
               </h4>
               <div className="space-y-3">
@@ -84,7 +84,7 @@ export default function Footer() {
                     key={item.href}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className="block text-white/50 hover:text-white text-sm transition-colors duration-300"
+                    className="block text-white/75 hover:text-white text-sm transition-colors duration-300"
                   >
                     {item.label}
                   </a>
@@ -94,7 +94,7 @@ export default function Footer() {
 
             {/* Hizmetler */}
             <div>
-              <h4 className="text-white/30 text-xs font-semibold uppercase tracking-widest mb-4">
+              <h4 className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">
                 Hizmetler
               </h4>
               <div className="space-y-3">
@@ -103,7 +103,7 @@ export default function Footer() {
                     key={item.label}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className="block text-white/50 hover:text-white text-sm transition-colors duration-300"
+                    className="block text-white/75 hover:text-white text-sm transition-colors duration-300"
                   >
                     {item.label}
                   </a>
@@ -113,7 +113,7 @@ export default function Footer() {
 
             {/* İletişim — İkon + hover tooltip */}
             <div>
-              <h4 className="text-white/30 text-xs font-semibold uppercase tracking-widest mb-4">
+              <h4 className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">
                 İletişim
               </h4>
               <div className="flex items-center gap-1">
@@ -125,7 +125,7 @@ export default function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative text-white/40 hover:text-white p-2 rounded-lg hover:bg-white/[0.06] transition-all duration-300"
+                      className="group relative text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/[0.06] transition-all duration-300"
                       aria-label={social.label}
                     >
                       <Icon className="h-[18px] w-[18px]" />
@@ -152,10 +152,10 @@ export default function Footer() {
         {/* Alt: Çizgi + Copyright */}
         <div className="border-t border-white/[0.06] pt-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-white/30 text-xs">
+            <p className="text-white/60 text-xs">
               © {currentYear} mAli. Tüm hakları saklıdır.
             </p>
-            <p className="text-white/20 text-xs">
+            <p className="text-white/60 text-xs">
               Made with ❤️ by mAli.
             </p>
           </div>

@@ -54,11 +54,11 @@ const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
               {category.title}
             </a>
           )}
-          <span class="flex items-center gap-1.5 text-sm text-white/50">
+          <span class="flex items-center gap-1.5 text-sm text-white/70">
             <Calendar className="h-4 w-4 inline" />
             {post.data.date}
           </span>
-          <span class="flex items-center gap-1.5 text-sm text-white/50">
+          <span class="flex items-center gap-1.5 text-sm text-white/70">
             <Clock className="h-4 w-4 inline" />
             {post.data.readingTime || 3} dk okuma
           </span>

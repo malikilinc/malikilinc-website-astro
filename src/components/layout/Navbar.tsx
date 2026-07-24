@@ -123,7 +123,7 @@ export default function Navbar() {
                 e.preventDefault();
                 handleNavClick(item.href);
               }}
-              className="text-sm font-medium text-white/60 hover:text-white transition-colors duration-300"
+              className="text-sm font-medium text-white/75 hover:text-white transition-colors duration-300"
             >
               {item.label}
             </a>
@@ -174,7 +174,7 @@ export default function Navbar() {
                     className="mt-6 flex flex-1 flex-col border-t border-white/10 px-4 pt-5"
                   >
                     <div>
-                      <h4 className="text-white/30 text-xs font-semibold uppercase tracking-widest mb-3">
+                      <h4 className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-3">
                         İletişim
                       </h4>
                       <div className="flex items-center gap-1">
@@ -187,7 +187,7 @@ export default function Navbar() {
                               href={social.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="group relative text-white/40 hover:text-white p-2 rounded-lg hover:bg-white/[0.06] transition-all duration-300"
+                              className="group relative text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/[0.06] transition-all duration-300"
                               aria-label={social.label}
                             >
                               <Icon className="h-[18px] w-[18px]" />

@@ -33,7 +33,7 @@ export default function BlogSection({ posts }: BlogSectionProps) {
 
         {posts.length === 0 ? (
           <div className="text-center py-16">
-            <p className="text-white/40 text-lg">Henüz blog yazısı yok.</p>
+            <p className="text-white/70 text-lg">Henüz blog yazısı yok.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -68,9 +68,9 @@ export default function BlogSection({ posts }: BlogSectionProps) {
                           </span>
                         )}
                         {post.readingTime && (
-                          <span className="flex items-center gap-1 text-xs text-white/40">
-                            <Clock className="h-3 w-3" />
-                            {post.readingTime} dk okuma
+                          <span className="flex items-center gap-1 text-xs text-white/70">
+                            <Clock className="w-3.5 h-3.5" />
+                            <span>{post.readingTime} dk okuma</span>
                           </span>
                         )}
                       </div>

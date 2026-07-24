@@ -9,7 +9,12 @@ import { Globe, Server, MapPin, ShoppingCart, Key } from "lucide-react";
 import { FaWordpress } from "react-icons/fa";
 import { SectionWrapper } from "@/components/shared";
 
-type ServiceIcon = React.ComponentType<{ className?: string }>;
+type ServiceIcon = React.ComponentType<{
+  className?: string;
+  "aria-label"?: string;
+  role?: string;
+  title?: string;
+}>;
 
 interface Service {
   id: string;
@@ -117,7 +122,12 @@ function ServiceCard({ service }: { service: Service }) {
       <div className="relative h-full rounded-[10px] bg-white/[0.03] backdrop-blur-xl p-6 flex flex-col gap-4 transition-colors duration-300 group-hover:bg-white/[0.06]">
         {/* İkon */}
         <div className={`w-10 h-10 rounded-lg ${bgColor} border ${borderColor} flex items-center justify-center flex-shrink-0`}>
-          <Icon className={`w-5 h-5 ${iconColor}`} />
+          <Icon
+            className={`w-5 h-5 ${iconColor}`}
+            aria-label={title}
+            title={title}
+            role="img"
+          />
         </div>
 
         {/* Başlık */}

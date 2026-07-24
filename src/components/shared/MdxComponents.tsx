@@ -10,7 +10,7 @@ export const components = {
     <span className="block my-6">
       <img
         src={props.src || ""}
-        alt={props.alt || ""}
+        alt={props.alt || "Yazı görseli"}
         loading="lazy"
         decoding="async"
         className="rounded-xl w-full max-w-[720px] h-auto mx-auto object-cover"
