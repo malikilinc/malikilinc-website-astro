@@ -25,7 +25,7 @@ const canonicalURL = new URL(
   Astro.url.pathname,
   Astro.site || "https://mali.tr",
 );
-const GA_ID = "G-1WFY4193JN";
+const GTM_ID = "GTM-MS6VNXP6";
 ---
 
 <!doctype html>
@@ -107,7 +107,7 @@ const GA_ID = "G-1WFY4193JN";
     />
 
     <!-- Google Tag Manager -->
-    <script>
+    <script is:inline define:vars={{ GTM_ID }}>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -117,12 +117,21 @@ const GA_ID = "G-1WFY4193JN";
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-MS6VNXP6");
+      })(window, document, "script", "dataLayer", GTM_ID);
     </script>
     <!-- End Google Tag Manager -->
   </head>
 
   <body class="antialiased bg-background text-foreground relative min-h-screen">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
     <LenisProvider client:idle>
       <BackgroundEffects />
       {showNavbar && <Navbar client:load />}
