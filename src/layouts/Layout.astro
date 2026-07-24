@@ -26,6 +26,7 @@ const canonicalURL = new URL(
   Astro.site || "https://mali.tr",
 );
 const GTM_ID = "GTM-MS6VNXP6";
+const GA_ID = "G-Y7J848G74G";
 ---
 
 <!doctype html>
@@ -105,6 +106,21 @@ const GTM_ID = "GTM-MS6VNXP6";
         description: description,
       })}
     />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+      fetchpriority="low"></script>
+    <script is:inline define:vars={{ GA_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", GA_ID);
+    </script>
 
     <!-- Google Tag Manager -->
     <script is:inline define:vars={{ GTM_ID }}>
