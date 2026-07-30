@@ -36,14 +36,31 @@ export function ProjectMedia({
   alt,
   className = "",
 }: ProjectMediaProps) {
-  const [isLongImage, setIsLongImage] = useState(() => {
-    return src.split("?")[0].toLowerCase().endsWith(".webp");
-  });
+  const [isLongImage, setIsLongImage] = useState(false);
+  const [scrollY, setScrollY] = useState<string>("-70%");
   const imgRef = useRef<HTMLImageElement>(null);
 
-  const checkIsLong = (img: HTMLImageElement) => {
+  const calculateScroll = (img: HTMLImageElement) => {
+    const container = img.parentElement;
+    if (!container) return;
+
+    const containerH = container.clientHeight;
+    let imgH = img.clientHeight;
+
+    if ((!imgH || imgH <= containerH) && img.naturalWidth > 0 && container.clientWidth > 0) {
+      imgH = container.clientWidth * (img.naturalHeight / img.naturalWidth);
+    }
+
     if (img.naturalHeight > img.naturalWidth * 1.2) {
       setIsLongImage(true);
+    } else {
+      setIsLongImage(false);
+      return;
+    }
+
+    if (imgH > containerH && containerH > 0) {
+      const scrollPercent = -((imgH - containerH) / imgH) * 100;
+      setScrollY(`${scrollPercent.toFixed(2)}%`);
     }
   };
 
@@ -51,9 +68,18 @@ export function ProjectMedia({
     const img = imgRef.current;
     if (img) {
       if (img.complete && img.naturalWidth > 0) {
-        checkIsLong(img);
+        calculateScroll(img);
       }
     }
+
+    const handleResize = () => {
+      if (imgRef.current && imgRef.current.complete) {
+        calculateScroll(imgRef.current);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [src]);
 
   if (isVideoMedia(src)) {
@@ -79,7 +105,12 @@ export function ProjectMedia({
       alt={alt}
       loading="eager"
       decoding="async"
-      onLoad={(e) => checkIsLong(e.currentTarget)}
+      onLoad={(e) => calculateScroll(e.currentTarget)}
+      style={
+        isLongImage
+          ? ({ "--scroll-y": scrollY } as React.CSSProperties)
+          : undefined
+      }
       className={
         isLongImage
           ? "animate-project-scroll"
