@@ -4,6 +4,7 @@ import { useId } from "react";
 import { motion, type Variants } from "framer-motion";
 import { BookOpen, User, Wrench, Rocket, ChevronRight, ArrowLeft } from "lucide-react";
 import { socialLinks } from "@/data/social";
+import { SafeSocialLink } from "@/components/shared/SafeSocialLink";
 
 export interface BioPostItem {
   slug: string;
@@ -203,19 +204,16 @@ export default function BioClient({ latestPosts }: BioClientProps) {
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
-                <a
+                <SafeSocialLink
                   key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  social={social}
                   className="group relative text-white/40 hover:text-white p-2 rounded-lg hover:bg-white/[0.06] transition-all duration-300 hover:scale-110"
-                  aria-label={social.label}
                 >
                   <Icon className="h-[18px] w-[18px] group-hover:text-[#FFB800] transition-colors" />
                   <span className="absolute top-full mt-1 left-1/2 -translate-x-1/2 px-2 py-1 bg-white/10 backdrop-blur-md text-white text-xs rounded-md whitespace-nowrap opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none border border-white/5">
                     {social.label}
                   </span>
-                </a>
+                </SafeSocialLink>
               );
             })}
           </div>

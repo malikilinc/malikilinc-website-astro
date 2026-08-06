@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { navItems, hizmetlerItems, resolveNavHref } from "@/data/navigation";
 import { siteDescription } from "@/data/site";
 import { socialLinks } from "@/data/social";
+import { SafeSocialLink } from "@/components/shared/SafeSocialLink";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -120,19 +121,16 @@ export default function Footer() {
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
                   return (
-                    <a
+                    <SafeSocialLink
                       key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      social={social}
                       className="group relative text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/[0.06] transition-all duration-300"
-                      aria-label={social.label}
                     >
                       <Icon className="h-[18px] w-[18px]" />
                       <span className="absolute top-full mt-1 left-1/2 -translate-x-1/2 px-2 py-1 bg-white/10 backdrop-blur-md text-white text-xs rounded-md whitespace-nowrap opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none">
                         {social.label}
                       </span>
-                    </a>
+                    </SafeSocialLink>
                   );
                 })}
               </div>

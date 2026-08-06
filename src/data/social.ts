@@ -1,33 +1,38 @@
-// mAli v1.0 — Sosyal medya linkleri
-
-import { Github, Twitter, Mail, Instagram } from "lucide-react";
+import { Mail } from "lucide-react";
+import { SiGithub, SiX, SiInstagram } from "react-icons/si";
 import { type LucideIcon } from "lucide-react";
 
 export interface SocialLink {
   label: string;
   href: string;
-  icon: LucideIcon;
+  icon: any;
+  isEmail?: boolean;
+  emailUser?: string;
+  emailDomain?: string;
 }
 
 export const socialLinks: SocialLink[] = [
   {
     label: "GitHub",
     href: "https://github.com/malikilinc",
-    icon: Github,
+    icon: SiGithub,
   },
   {
     label: "Instagram",
     href: "https://instagram.com/malikilinccom",
-    icon: Instagram,
+    icon: SiInstagram,
   },
   {
     label: "X (Twitter)",
     href: "https://twitter.com/malikilinc",
-    icon: Twitter,
+    icon: SiX,
   },
   {
     label: "E-posta",
-    href: "mailto:mali@mali.tr",
+    href: "#",
+    isEmail: true,
+    emailUser: "mali",
+    emailDomain: "mali.tr",
     icon: Mail,
   },
 ];

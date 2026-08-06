@@ -2,7 +2,8 @@
 import Layout from "@/layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 import { getProjectCategoryBySlug } from "@/data/projects";
-import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
+import { SiGithub } from "react-icons/si";
 import { ProjectMedia } from "@/components/shared/ProjectMedia";
 
 export async function getStaticPaths() {
@@ -102,7 +103,7 @@ const liveUrls =
               rel="noopener noreferrer"
               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white font-medium hover:bg-white/20 transition-all"
             >
-              <Github className="h-4 w-4" />
+              <SiGithub className="h-4 w-4" />
               GitHub
             </a>
           )}
