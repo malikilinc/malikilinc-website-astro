@@ -165,6 +165,14 @@ const GA_ID = "G-Y7J848G74G";
   </head>
 
   <body class="antialiased bg-background text-foreground relative min-h-screen">
+    <!-- Skip to content for accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:shadow-lg focus:outline-none"
+    >
+      İçeriğe Atla
+    </a>
+
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
@@ -177,7 +185,7 @@ const GA_ID = "G-Y7J848G74G";
     <LenisProvider client:idle>
       <BackgroundEffects />
       {showNavbar && <Navbar client:idle />}
-      <main class="relative z-10 min-h-screen">
+      <main id="main-content" class="relative z-10 min-h-screen">
         <slot />
       </main>
       {showFooter && <Footer client:visible />}

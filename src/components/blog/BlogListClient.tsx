@@ -28,10 +28,11 @@ export default function BlogListClient({
       <div className="flex flex-wrap gap-3 mb-10 justify-center">
         <button
           onClick={() => setActiveCategory(null)}
+          aria-label="Tüm kategorileri göster"
           className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
             activeCategory === null
               ? "bg-accent text-white border border-accent/50"
-              : "bg-white/5 text-white/60 border border-white/10 hover:bg-white/10 hover:text-white"
+              : "bg-white/5 text-white/80 border border-white/10 hover:bg-white/10 hover:text-white"
           }`}
         >
           Tümü
@@ -40,10 +41,11 @@ export default function BlogListClient({
           <button
             key={cat.slug}
             onClick={() => setActiveCategory(cat.slug)}
+            aria-label={`Kategoriye göre filtrele: ${cat.title}`}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
               activeCategory === cat.slug
                 ? "bg-accent text-white border border-accent/50"
-                : "bg-white/5 text-white/60 border border-white/10 hover:bg-white/10 hover:text-white"
+                : "bg-white/5 text-white/80 border border-white/10 hover:bg-white/10 hover:text-white"
             }`}
           >
             {cat.title}
@@ -63,7 +65,7 @@ export default function BlogListClient({
         >
           {filteredPosts.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-white/70 text-lg">
+              <p className="text-white/80 text-lg">
                 Seçilen kategoride henüz yazı bulunmuyor.
               </p>
             </div>
@@ -73,7 +75,7 @@ export default function BlogListClient({
                 (c) => c.slug === post.category
               );
               return (
-                <a key={post.slug} href={`/blog/${post.slug}`}>
+                <a key={post.slug} href={`/blog/${post.slug}`} aria-label={post.title}>
                   <article className="group rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-xl overflow-hidden hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer h-full flex flex-col">
                     {post.image && (
                       <div className="relative aspect-video overflow-hidden">
@@ -92,11 +94,11 @@ export default function BlogListClient({
                     <div className="p-5 flex flex-col flex-1">
                       <div className="flex items-center gap-3 mb-3">
                         {category && (
-                          <span className="text-xs px-2 py-1 rounded-full bg-accent/20 text-accent border border-accent/30">
+                          <span className="text-xs px-2.5 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-400/30">
                             {category.title}
                           </span>
                         )}
-                        <span className="flex items-center gap-1 text-xs text-white/70">
+                        <span className="flex items-center gap-1 text-xs text-white/80">
                           <Clock className="w-3.5 h-3.5" />
                           <span>{post.readingTime} dk okuma</span>
                         </span>
@@ -104,10 +106,10 @@ export default function BlogListClient({
                       <h3 className="text-lg font-semibold text-white mb-2 line-clamp-2">
                         {post.title}
                       </h3>
-                      <p className="text-white/60 text-sm line-clamp-2 flex-1">
+                      <p className="text-white/75 text-sm line-clamp-2 flex-1">
                         {post.description}
                       </p>
-                      <div className="mt-3 text-xs text-white/30">
+                      <div className="mt-3 text-xs text-white/70">
                         {post.date}
                       </div>
                     </div>

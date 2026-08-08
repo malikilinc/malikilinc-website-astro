@@ -31,10 +31,11 @@ export default function ProjectsListClient({
       <div className="flex flex-wrap gap-3 mb-10 justify-center">
         <button
           onClick={() => setActiveCategory(null)}
+          aria-label="Tüm projeleri göster"
           className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
             activeCategory === null
               ? "bg-accent text-white border border-accent/50"
-              : "bg-white/5 text-white/60 border border-white/10 hover:bg-white/10 hover:text-white"
+              : "bg-white/5 text-white/80 border border-white/10 hover:bg-white/10 hover:text-white"
           }`}
         >
           Tümü
@@ -43,10 +44,11 @@ export default function ProjectsListClient({
           <button
             key={cat.slug}
             onClick={() => setActiveCategory(cat.slug)}
+            aria-label={`Kategoriye göre filtrele: ${cat.title}`}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
               activeCategory === cat.slug
                 ? "bg-accent text-white border border-accent/50"
-                : "bg-white/5 text-white/60 border border-white/10 hover:bg-white/10 hover:text-white"
+                : "bg-white/5 text-white/80 border border-white/10 hover:bg-white/10 hover:text-white"
             }`}
           >
             {cat.title}
@@ -66,7 +68,7 @@ export default function ProjectsListClient({
         >
           {filteredProjects.length === 0 ? (
             <div className="col-span-full text-center py-16">
-              <p className="text-white/40 text-lg">
+              <p className="text-white/75 text-lg">
                 Bu kategoride henüz proje bulunmuyor.
               </p>
             </div>
@@ -76,7 +78,7 @@ export default function ProjectsListClient({
                 (c) => c.slug === project.category
               );
               return (
-                <a key={project.slug} href={`/projects/${project.slug}`}>
+                <a key={project.slug} href={`/projects/${project.slug}`} aria-label={project.title}>
                   <article className="group rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-xl overflow-hidden hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer h-full flex flex-col">
                     {/* Proje Görseli */}
                     <div className="relative aspect-video overflow-hidden">
@@ -98,7 +100,7 @@ export default function ProjectsListClient({
                       {/* Kategori */}
                       <div className="flex items-center gap-3 mb-3">
                         {category && (
-                          <span className="text-xs px-2 py-1 rounded-full bg-accent/20 text-accent border border-accent/30">
+                          <span className="text-xs px-2.5 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-400/30">
                             {category.title}
                           </span>
                         )}
@@ -107,7 +109,7 @@ export default function ProjectsListClient({
                       <h3 className="text-lg font-semibold text-white mb-2 line-clamp-2">
                         {project.title}
                       </h3>
-                      <p className="text-white/60 text-sm line-clamp-2 flex-1">
+                      <p className="text-white/75 text-sm line-clamp-2 flex-1">
                         {project.shortDescription}
                       </p>
 
@@ -116,7 +118,7 @@ export default function ProjectsListClient({
                         {project.technologies.slice(0, 3).map((tech) => (
                           <span
                             key={tech}
-                            className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/60"
+                            className="text-xs px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-white/80"
                           >
                             {tech}
                           </span>

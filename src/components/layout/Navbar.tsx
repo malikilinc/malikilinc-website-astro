@@ -98,6 +98,7 @@ export default function Navbar() {
         {/* Logo — Sol */}
         <a
           href="/"
+          aria-label="mAli Ana Sayfa"
           onClick={(e) => {
             if (isHome) {
               e.preventDefault();
@@ -124,7 +125,7 @@ export default function Navbar() {
                 e.preventDefault();
                 handleNavClick(item.href);
               }}
-              className="text-sm font-medium text-white/75 hover:text-white transition-colors duration-300"
+              className="text-sm font-medium text-white/85 hover:text-white transition-colors duration-300"
             >
               {item.label}
             </a>
@@ -175,7 +176,7 @@ export default function Navbar() {
                     className="mt-6 flex flex-1 flex-col border-t border-white/10 px-4 pt-5"
                   >
                     <div>
-                      <h4 className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-3">
+                      <h4 className="text-white/75 text-xs font-semibold uppercase tracking-widest mb-3">
                         İletişim
                       </h4>
                       <div className="flex items-center gap-1">
@@ -186,7 +187,7 @@ export default function Navbar() {
                             <SafeSocialLink
                               key={social.label}
                               social={social}
-                              className="group relative text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/[0.06] transition-all duration-300"
+                              className="group relative text-white/80 hover:text-white p-2.5 rounded-lg hover:bg-white/[0.06] transition-all duration-300"
                             >
                               <Icon className="h-[18px] w-[18px]" />
                               <span className="absolute top-full mt-1 left-1/2 -translate-x-1/2 px-2 py-1 bg-white/10 backdrop-blur-md text-white text-xs rounded-md whitespace-nowrap opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none">
@@ -197,7 +198,7 @@ export default function Navbar() {
                         })}
                       </div>
                     </div>
-                    <p className="mt-auto mb-20 pt-6 pr-4 pb-4 text-white/50 text-sm leading-relaxed">
+                    <p className="mt-auto mb-20 pt-6 pr-4 pb-4 text-white/75 text-sm leading-relaxed">
                       {siteDescription}
                     </p>
                   </motion.div>

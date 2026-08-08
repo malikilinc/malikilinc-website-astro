@@ -61,13 +61,13 @@ export default function Footer() {
           <div className="md:col-span-5 space-y-5">
             {/* Logo */}
             <div className="flex items-center">
-              <span className="relative inline-block font-bold text-xl tracking-tight text-white/60 hover:text-white transition-colors duration-300 group cursor-default">
+              <span className="relative inline-block font-bold text-xl tracking-tight text-white/80 hover:text-white transition-colors duration-300 group cursor-default">
                 mAli
                 <span className="absolute bottom-0 left-0 h-[1.5px] w-0 group-hover:w-full bg-white transition-all duration-500 ease-out" />
               </span>
             </div>
 
-            <p className="text-white/50 text-sm leading-relaxed max-w-xs">
+            <p className="text-white/75 text-sm leading-relaxed max-w-xs">
               {siteDescription}
             </p>
           </div>
@@ -76,7 +76,7 @@ export default function Footer() {
           <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-6">
             {/* Menü */}
             <div>
-              <h4 className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">
+              <h4 className="text-white/80 text-xs font-semibold uppercase tracking-widest mb-4">
                 Menü
               </h4>
               <div className="space-y-3">
@@ -85,7 +85,7 @@ export default function Footer() {
                     key={item.href}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className="block text-white/75 hover:text-white text-sm transition-colors duration-300"
+                    className="block text-white/85 hover:text-white text-sm transition-colors duration-300"
                   >
                     {item.label}
                   </a>
@@ -95,7 +95,7 @@ export default function Footer() {
 
             {/* Hizmetler */}
             <div>
-              <h4 className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">
+              <h4 className="text-white/80 text-xs font-semibold uppercase tracking-widest mb-4">
                 Hizmetler
               </h4>
               <div className="space-y-3">
@@ -104,7 +104,7 @@ export default function Footer() {
                     key={item.label}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className="block text-white/75 hover:text-white text-sm transition-colors duration-300"
+                    className="block text-white/85 hover:text-white text-sm transition-colors duration-300"
                   >
                     {item.label}
                   </a>
@@ -114,7 +114,7 @@ export default function Footer() {
 
             {/* İletişim — İkon + hover tooltip */}
             <div>
-              <h4 className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">
+              <h4 className="text-white/80 text-xs font-semibold uppercase tracking-widest mb-4">
                 İletişim
               </h4>
               <div className="flex items-center gap-1">
@@ -124,7 +124,7 @@ export default function Footer() {
                     <SafeSocialLink
                       key={social.label}
                       social={social}
-                      className="group relative text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/[0.06] transition-all duration-300"
+                      className="group relative text-white/80 hover:text-white p-2.5 rounded-lg hover:bg-white/[0.06] transition-all duration-300"
                     >
                       <Icon className="h-[18px] w-[18px]" />
                       <span className="absolute top-full mt-1 left-1/2 -translate-x-1/2 px-2 py-1 bg-white/10 backdrop-blur-md text-white text-xs rounded-md whitespace-nowrap opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none">
@@ -150,10 +150,10 @@ export default function Footer() {
         {/* Alt: Çizgi + Copyright */}
         <div className="border-t border-white/[0.06] pt-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-white/60 text-xs">
+            <p className="text-white/75 text-xs">
               © {currentYear} mAli. Tüm hakları saklıdır.
             </p>
-            <p className="text-white/60 text-xs">
+            <p className="text-white/75 text-xs">
               Made with ❤️ by mAli.
             </p>
           </div>

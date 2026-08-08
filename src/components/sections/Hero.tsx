@@ -36,7 +36,6 @@ export default function Hero() {
         ref={videoRef}
         autoPlay
         muted
-        loop
         playsInline
         preload="none"
         poster="/images/hero-poster.webp"
