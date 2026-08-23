@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schemas.org/ai-catalog.json",
+  "name": "mAli (Mehmet Ali Kılınç)",
+  "description": "Kişisel web sitesi, portfolyo, blog ve dijital hizmetler platformu.",
+  "url": "https://mali.tr",
+  "version": "1.0.0",
+  "documentation": {
+    "llms": "https://mali.tr/llms.txt",
+    "llms_full": "https://mali.tr/llms-full.txt"
+  },
+  "endpoints": {
+    "sitemap": "https://mali.tr/sitemap-index.xml"
+  },
+  "author": {
+    "name": "Mehmet Ali Kılınç",
+    "url": "https://mali.tr/about"
+  }
+}

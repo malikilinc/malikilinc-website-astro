@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "skills": [
+    {
+      "id": "read-portfolio",
+      "name": "Portfolio & Projects Reader",
+      "description": "Retrieve Mehmet Ali Kılınç's published software and design projects.",
+      "url": "https://mali.tr/projects"
+    },
+    {
+      "id": "read-blog",
+      "name": "Blog Articles Reader",
+      "description": "Read technical articles on modern web technologies, AI, and developer experiences.",
+      "url": "https://mali.tr/blog"
+    },
+    {
+      "id": "read-services",
+      "name": "Digital Services Reader",
+      "description": "Information regarding web development, WordPress, e-commerce, and digital licensing services.",
+      "url": "https://mali.tr/services"
+    }
+  ]
+}

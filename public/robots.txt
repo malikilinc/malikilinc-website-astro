@@ -1,6 +1,11 @@
 User-agent: *
 Allow: /
 
+# Content Signals for AI Crawlers
+Content-Signal: ai-train=yes
+Content-Signal: search=yes
+Content-Signal: ai-input=yes
+
 # Standard Search Engine Crawlers
 User-agent: Googlebot
 Allow: /

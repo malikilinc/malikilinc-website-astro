@@ -1,0 +1,11 @@
+{
+  "id": "mali-tr",
+  "name": "mAli Web Agent Card",
+  "description": "Software developer portfolio, technical blog articles, and digital services by Mehmet Ali Kılınç.",
+  "url": "https://mali.tr",
+  "capabilities": {
+    "text_markdown": true,
+    "llms_txt": true
+  },
+  "contact": "https://mali.tr/bio"
+}
