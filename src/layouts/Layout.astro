@@ -76,6 +76,20 @@ const GA_ID = "G-Y7J848G74G";
     />
     <meta name="author" content="mAli" />
 
+    <!-- AI Agent & LLM Discovery Links -->
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="/llms.txt"
+      title="LLM Summary"
+    />
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="/llms-full.txt"
+      title="Full LLM Summary"
+    />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
@@ -90,20 +104,40 @@ const GA_ID = "G-Y7J848G74G";
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-    <!-- JSON-LD Structured Data for Crawlers & Search Engines -->
+    <!-- JSON-LD Structured Data for Crawlers & AI Agents -->
     <script
       type="application/ld+json"
       is:inline
       set:html={JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        name: "mAli",
-        url: "https://mali.tr/",
-        author: {
-          "@type": "Person",
-          name: "mAli",
-        },
-        description: description,
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://mali.tr/#person",
+            name: "Mehmet Ali Kılınç",
+            alternateName: "mAli",
+            url: "https://mali.tr",
+            image: "https://mali.tr/images/hero-poster.webp",
+            jobTitle: "Software Developer & Digital Creator",
+            description:
+              "Yazılım geliştirme, freelance süreçler ve modern web teknolojileri üzerine kişisel web sitesi ve dijital hizmetler.",
+            sameAs: [
+              "https://github.com/malikilinc",
+              "https://twitter.com/malikilinc",
+              "https://instagram.com/malikilinccom",
+            ],
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mali.tr/#website",
+            name: "mAli",
+            url: "https://mali.tr/",
+            description: description,
+            publisher: {
+              "@id": "https://mali.tr/#person",
+            },
+          },
+        ],
       })}
     />
 

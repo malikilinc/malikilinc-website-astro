@@ -1,0 +1,57 @@
+# Mehmet Ali Kılınç (mAli) — Kapsamlı Bilgi ve İçerik Özeti (llms-full.txt)
+
+Web Sitesi: https://mali.tr
+Yazar: Mehmet Ali Kılınç (mAli)
+Konum: Türkiye
+
+---
+
+## 1. Genel Tanıtım ve Vizyon
+Mehmet Ali Kılınç (mAli), modern web teknolojileri, full-stack yazılım geliştirme, dijital altyapı yönetimi ve kullanıcı deneyimi odaklı projeler geliştiren bir yazılımcı ve dijital üreticidir. "Eskiden bir milyoncuydu, şimdilerde her şeyci" mottosuyla çok yönlü problem çözme yeteneğine ve geniş bir teknik yelpazeye sahiptir.
+
+---
+
+## 2. Sayfalar ve Detaylı İçerikler
+
+### Ana Sayfa (/)
+- URL: https://mali.tr/
+- İçerik: Dinamik hero bölümü, güncel odak alanları, öne çıkan projeler, son blog yazıları ve hizmet özetleri.
+
+### Hakkımda (/about)
+- URL: https://mali.tr/about
+- İçerik:
+  - Mehmet Ali Kılınç'ın sektörel deneyimi, yazılıma başlama hikayesi ve problem çözme yaklaşımı.
+  - Yetenekler: Modern web mimarileri (Astro, React, Next.js, TypeScript), performans optimizasyonu (Core Web Vitals), responsive ve erişilebilir arayüz tasarımı.
+  - Kullandığı araçlar: VS Code, Git, Docker, Node.js ekosistemi, Figma, modern terminal araçları.
+
+### Hizmetler (/services)
+- URL: https://mali.tr/services
+- Sunulan Çözümler:
+  1. **Web Geliştirme & Tasarım**: Modern, hızlı, SEO uyumlu ve mobil uyumlu kurumsal veya kişisel web siteleri (Astro, Next.js, React).
+  2. **E-Ticaret Çözümleri**: Satış odaklı, güvenli ödeme sistemleri ve sipariş yönetim altyapıları.
+  3. **WordPress & Özel Yazılımlar**: WordPress tema/eklenti optimizasyonu, özel yönetim panelleri ve API entegrasyonları.
+  4. **Domain & Hosting Danışmanlığı**: Doğru altyapı seçimi, DNS yönetimi, Cloudflare entegrasyonu ve sunucu kurulumu.
+  5. **Harita & Yerel SEO Kayıtları**: Google Haritalar, Apple Maps ve yerel dizinlerde işletme görünürlüğü.
+  6. **Yazılım & Lisanslama Desteği**: Dijital araçlar, kurumsal yazılım lisansları ve kurulum süreçleri.
+
+### Projeler (/projects)
+- URL: https://mali.tr/projects
+- İçerik: Geliştirilen açık kaynak kütüphaneler, web uygulamaları, müşteri projeleri ve yan projeler.
+
+### Blog (/blog)
+- URL: https://mali.tr/blog
+- İçerik: Frontend pratikleri, Astro ve React ipuçları, yapay zeka araçları ve web geliştirme deneyimlerini içeren özgün yazılar.
+
+### Bio & Hızlı Bağlantılar (/bio)
+- URL: https://mali.tr/bio
+- İçerik: Sosyal medya hesapları, güncel iletişim kanalları ve hızlı portfolyo erişimi.
+
+---
+
+## 3. İletişim & Sosyal Medya
+- **Resmi Web Sitesi**: https://mali.tr
+- **İletişim & Bio**: https://mali.tr/bio
+- **E-Posta**: mali [at] mali.tr (Doğrudan iletişim için https://mali.tr/bio adresini kullanabilirsiniz)
+- **GitHub**: https://github.com/malikilinc
+- **Twitter / X**: https://twitter.com/malikilinc
+- **Instagram**: https://instagram.com/malikilinccom

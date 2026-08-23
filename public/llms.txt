@@ -1,0 +1,27 @@
+# Mehmet Ali Kılınç (mAli)
+
+> Kişisel web sitesi, portfolyo, blog ve dijital hizmetler platformu. Yazılım geliştirme, modern web teknolojileri (Astro, React, Next.js, TypeScript, Tailwind CSS), freelance çözümler ve danışmanlık.
+
+## Ana Sayfalar ve Bağlantılar
+
+- [Ana Sayfa](https://mali.tr/): Genel tanıtım, vizyon ve portfolyo vitrini.
+- [Hakkımda](https://mali.tr/about): Mehmet Ali Kılınç hakkında detaylı biyografi, kariyer geçmişi, teknik yetkinlikler ve kullandığı araçlar.
+- [Hizmetler](https://mali.tr/services): Web geliştirme, e-ticaret, domain, hosting, WordPress, harita kayıt ve lisanslama çözümleri.
+- [Projeler](https://mali.tr/projects): Geliştirilen açık kaynak ve ticari projeler, teknik detaylar ve canlı demolar.
+- [Blog](https://mali.tr/blog): Yazılım, teknoloji, yapay zeka, modern frontend/backend pratikleri üzerine makaleler ve rehberler.
+- [Bio / İletişim](https://mali.tr/bio): Hızlı erişim bağlantıları, sosyal medya profilleri ve iletişim kanalları.
+
+## Teknik Uzmanlık ve Araçlar
+
+- **Frontend & Web**: JavaScript, TypeScript, React, Next.js, Astro, Tailwind CSS, HTML5, CSS3/Modern CSS.
+- **Backend & Cloud**: Node.js, RESTful API'ler, Webhook'lar, Serverless mimariler, Cloudflare, Vercel.
+- **CMS & Platformlar**: WordPress, Headless CMS, E-ticaret entegrasyonları.
+- **Araçlar & DevOps**: Git, GitHub, Docker, SEO & Core Web Vitals optimizasyonu, AI entegrasyonları.
+
+## Sosyal Ağlar ve İletişim
+
+- **Web**: https://mali.tr
+- **GitHub**: https://github.com/malikilinc
+- **Twitter / X**: https://twitter.com/malikilinc
+- **İletişim & Bio**: https://mali.tr/bio
+- **E-posta**: mali [at] mali.tr (İletişim formu ve doğrudan bağlantı için https://mali.tr/bio)
