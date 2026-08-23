@@ -1,0 +1,25 @@
+{
+  "serverInfo": {
+    "name": "mali-tr-mcp",
+    "version": "1.0.0",
+    "description": "Model Context Protocol Server for Mehmet Ali Kılınç (mAli) personal website, portfolio, and blog."
+  },
+  "protocolVersion": "2024-11-05",
+  "capabilities": {
+    "prompts": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    },
+    "tools": {
+      "listChanged": false
+    }
+  },
+  "endpoints": {
+    "http": "https://mali.tr/api/mcp",
+    "sse": "https://mali.tr/api/mcp/sse"
+  },
+  "documentation": "https://mali.tr/llms.txt"
+}

@@ -141,6 +141,33 @@ const GA_ID = "G-Y7J848G74G";
       })}
     />
 
+    <!-- WebMCP Tool Provider for AI Browser Agents -->
+    <script is:inline>
+      if (typeof window !== "undefined" && "modelContext" in navigator && typeof navigator.modelContext.provideContext === "function") {
+        try {
+          navigator.modelContext.provideContext({
+            tools: [
+              {
+                name: "getPortfolioInfo",
+                description: "Get general info, projects, and bio about Mehmet Ali Kılınç (mAli).",
+                inputSchema: { type: "object", properties: {} },
+                execute: async () => ({
+                  name: "Mehmet Ali Kılınç (mAli)",
+                  website: "https://mali.tr",
+                  aboutUrl: "https://mali.tr/about",
+                  projectsUrl: "https://mali.tr/projects",
+                  blogUrl: "https://mali.tr/blog",
+                  llmsUrl: "https://mali.tr/llms.txt"
+                })
+              }
+            ]
+          });
+        } catch (e) {
+          // WebMCP silent fallback
+        }
+      }
+    </script>
+
     <!-- Optimized Analytics & Google Tag Manager Loader (Deferred for 100/100 PageSpeed & 0 TBT) -->
     <script is:inline define:vars={{ GA_ID, GTM_ID }}>
       window.dataLayer = window.dataLayer || [];

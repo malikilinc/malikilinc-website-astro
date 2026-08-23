@@ -1,0 +1,25 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://mali.tr/api",
+      "service-desc": [
+        {
+          "href": "https://mali.tr/.well-known/ai-catalog.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://mali.tr/llms.txt",
+          "type": "text/markdown"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://mali.tr/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}

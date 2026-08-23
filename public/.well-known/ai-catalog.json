@@ -1,18 +1,57 @@
 {
-  "$schema": "https://json-schemas.org/ai-catalog.json",
-  "name": "mAli (Mehmet Ali Kılınç)",
-  "description": "Kişisel web sitesi, portfolyo, blog ve dijital hizmetler platformu.",
-  "url": "https://mali.tr",
-  "version": "1.0.0",
-  "documentation": {
-    "llms": "https://mali.tr/llms.txt",
-    "llms_full": "https://mali.tr/llms-full.txt"
+  "$schema": "https://agenticresourcediscovery.org/schemas/v1/ai-catalog.json",
+  "specVersion": "1.0.0",
+  "host": {
+    "name": "mAli",
+    "domain": "mali.tr",
+    "url": "https://mali.tr"
   },
-  "endpoints": {
-    "sitemap": "https://mali.tr/sitemap-index.xml"
-  },
-  "author": {
-    "name": "Mehmet Ali Kılınç",
-    "url": "https://mali.tr/about"
-  }
+  "entries": [
+    {
+      "id": "urn:air:mali.tr:docs:llms-txt",
+      "displayName": "mAli LLMs Summary",
+      "description": "Condensed summary and navigation guide for AI agents and LLMs.",
+      "type": "text/markdown",
+      "url": "https://mali.tr/llms.txt",
+      "representativeQueries": [
+        "Mehmet Ali Kılınç kimdir?",
+        "mAli web sitesi ve hizmetleri",
+        "mAli projeleri ve teknik yetkinlikleri"
+      ]
+    },
+    {
+      "id": "urn:air:mali.tr:docs:llms-full-txt",
+      "displayName": "mAli Full LLM Knowledge Base",
+      "description": "Complete knowledge base, detailed biography, skills, and portfolio breakdown.",
+      "type": "text/markdown",
+      "url": "https://mali.tr/llms-full.txt",
+      "representativeQueries": [
+        "Mehmet Ali Kılınç detaylı özgeçmiş",
+        "mAli sunduğu tüm dijital hizmetler",
+        "mAli blog yazıları ve projeleri"
+      ]
+    },
+    {
+      "id": "urn:air:mali.tr:api:api-catalog",
+      "displayName": "mAli RFC 9727 API Catalog",
+      "description": "Machine-readable API and service catalog for automated discovery.",
+      "type": "application/linkset+json",
+      "url": "https://mali.tr/.well-known/api-catalog",
+      "representativeQueries": [
+        "mAli API catalog",
+        "mAli endpoints and service documentation"
+      ]
+    },
+    {
+      "id": "urn:air:mali.tr:mcp:server-card",
+      "displayName": "mAli MCP Server Card",
+      "description": "Model Context Protocol capabilities and tools for interacting with mAli portfolio.",
+      "type": "application/json",
+      "url": "https://mali.tr/.well-known/mcp/server-card.json",
+      "representativeQueries": [
+        "mAli MCP server tools",
+        "mAli context tools and portfolio queries"
+      ]
+    }
+  ]
 }
