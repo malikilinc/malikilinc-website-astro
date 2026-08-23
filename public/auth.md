@@ -1,4 +1,6 @@
-# Authentication & Agent Access Policy — mali.tr
+# auth.md
+
+This document specifies agent authentication and registration instructions for `https://mali.tr`.
 
 ## Overview
 The website `https://mali.tr` provides public, open, read-only content including portfolio projects, blog posts, service details, and LLM-friendly documentation.

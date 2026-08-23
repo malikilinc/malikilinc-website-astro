@@ -8,7 +8,7 @@
   },
   "entries": [
     {
-      "id": "urn:air:mali.tr:docs:llms-txt",
+      "identifier": "urn:air:mali.tr:docs:llms-txt",
       "displayName": "mAli LLMs Summary",
       "description": "Condensed summary and navigation guide for AI agents and LLMs.",
       "type": "text/markdown",
@@ -20,7 +20,7 @@
       ]
     },
     {
-      "id": "urn:air:mali.tr:docs:llms-full-txt",
+      "identifier": "urn:air:mali.tr:docs:llms-full-txt",
       "displayName": "mAli Full LLM Knowledge Base",
       "description": "Complete knowledge base, detailed biography, skills, and portfolio breakdown.",
       "type": "text/markdown",
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "id": "urn:air:mali.tr:api:api-catalog",
+      "identifier": "urn:air:mali.tr:api:api-catalog",
       "displayName": "mAli RFC 9727 API Catalog",
       "description": "Machine-readable API and service catalog for automated discovery.",
       "type": "application/linkset+json",
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "id": "urn:air:mali.tr:mcp:server-card",
+      "identifier": "urn:air:mali.tr:mcp:server-card",
       "displayName": "mAli MCP Server Card",
       "description": "Model Context Protocol capabilities and tools for interacting with mAli portfolio.",
       "type": "application/json",
